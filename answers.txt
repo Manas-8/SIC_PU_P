@@ -1,0 +1,37 @@
+tomato_yield=((7 * 1000 * 10 * 4.8) + (7 * 1000 * 12 * 11.2))
+potato_yield=(20 * 1000 * 10 * 16)
+cabbage_yield=(24 * 1000 * 14 * 16)
+sunflower_yield=(200 * 1000 * 0.7 * 16)
+sugaercane_yield=(4000 * 45 * 16)
+total_yield=tomato_yield+potato_yield+cabbage_yield+sunflower_yield+sugaercane_yield
+print(f"the total yield of 80 acres of land is {total_yield}")
+print("""Since the sugercane farm is still not usable due to being in processing 
+it wont be considered for the second question as it only considers 11 months 
+the vegetable took 6 months and sunflower took another 4 thus a total of 10 months""")
+print(f""{})
+
+number_1=int(input("Enter first number: "))
+number_2=int(input("Enter second number: "))
+number_3=int(input("Enter third number: "))
+if number_1<number_2 and number_1<number_3:
+    print(f"The smallest number is {number_1}")
+elif number_2<number_1 and number_2<number_3:
+    print(f"The smallest number is {number_2}")
+else:
+    print(f"The smallest number is {number_3}")
+	
+
+	
+	
+square=int(input("Enter the number to be checked: "))
+if(square ** 0.5 % 1 == 0):
+    print(f"{square} is a perfect square")
+else:
+    print(f"{square} is not a perfect square")
+	
+	
+year=int(input("Enter the year: "))
+if ((year % 4 == 0 and year % 100 !=0) or year % 400 ==0):
+    print(f"{year} is a leap year")
+else:
+    print(f"{year} is not a leap year")
