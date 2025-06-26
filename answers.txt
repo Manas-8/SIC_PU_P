@@ -8,7 +8,7 @@ print(f"the total yield of 80 acres of land is {total_yield}")
 print("""Since the sugercane farm is still not usable due to being in processing 
 it wont be considered for the second question as it only considers 11 months 
 the vegetable took 6 months and sunflower took another 4 thus a total of 10 months""")
-print(f""{})
+print(f"total yield without sugarcane {sunflower_yield-sugaercane_yield}")
 
 number_1=int(input("Enter first number: "))
 number_2=int(input("Enter second number: "))
@@ -35,3 +35,107 @@ if ((year % 4 == 0 and year % 100 !=0) or year % 400 ==0):
     print(f"{year} is a leap year")
 else:
     print(f"{year} is not a leap year")
+
+
+number=input("Enter the number: ")
+current_max=int(number[0])
+for i in number:
+    if int(i)>current_max:
+        current_max=int(i)
+
+print(f"the biggest digit is {current_max}")
+
+import re
+
+def get_valid_name():
+    while True:
+        name = input("Enter Employee Name: ").strip()
+        if name and name.replace(" ", "").isalpha() and len(name) <= 50:
+            return name
+        print("Invalid name. Only alphabets allowed, max 50 characters.")
+
+def get_valid_empid():
+    while True:
+        empid = input("Enter Employee ID (5–10 alphanumeric chars): ").strip()
+        if empid.isalnum() and 5 <= len(empid) <= 10:
+            return empid
+        print("Invalid EmpID. Must be alphanumeric and 5–10 characters long.")
+
+def get_valid_salary(prompt, allow_zero=True):
+    while True:
+        try:
+            value = float(input(prompt))
+            if (allow_zero and value >= 0 or not allow_zero and value > 0) and value <= 10000000:
+                return value
+            print("Invalid amount. Must be within ₹0 to ₹1,00,00,000.")
+        except ValueError:
+            print("Please enter a valid numeric value.")
+
+def get_valid_bonus_percentage():
+    while True:
+        bonus = input("Enter Annual Bonus Percentage (% of Gross Salary): ").strip()
+        if bonus.endswith('%'):
+            bonus = bonus[:-1]
+        try:
+            bonus_value = float(bonus)
+            if 0 <= bonus_value <= 100:
+                return bonus_value
+            print("Bonus must be between 0% and 100%.")
+        except ValueError:
+            print("Enter a valid number for bonus percentage.")
+
+def calculate_tax(taxable_income):
+    slabs = [(300000, 0.00), (300000, 0.05), (300000, 0.10),
+             (300000, 0.15), (300000, 0.20), (float('inf'), 0.30)]
+    tax = 0
+    remaining = taxable_income
+    for limit, rate in slabs:
+        if remaining <= 0:
+            break
+        taxable_at_this_slab = min(limit, remaining)
+        tax += taxable_at_this_slab * rate
+        remaining -= taxable_at_this_slab
+    if taxable_income <= 700000:
+        tax = 0
+    cess = tax * 0.04
+    return round(tax, 2), round(cess, 2), round(tax + cess, 2)
+
+def main():
+    name = get_valid_name()
+    empid = get_valid_empid()
+    basic_salary = get_valid_salary("Enter Basic Monthly Salary: ", allow_zero=False)
+    special_allowances = get_valid_salary("Enter Special Allowances (Monthly): ")
+    bonus_percentage = get_valid_bonus_percentage()
+
+    gross_monthly_salary = basic_salary + special_allowances
+    annual_gross_salary = (gross_monthly_salary * 12) + (bonus_percentage / 100 * gross_monthly_salary * 12)
+
+    if gross_monthly_salary <= 0 or annual_gross_salary > 10000000 * 2:
+        print("Invalid salary calculations.")
+        return
+
+    standard_deduction = 50000
+    taxable_income = max(annual_gross_salary - standard_deduction, 0)
+
+    tax, cess, total_tax = calculate_tax(taxable_income)
+    net_annual_salary = annual_gross_salary - total_tax
+
+    print("\n" + "="*40)
+    print("EMPLOYEE TAX REPORT")
+    print("="*40)
+    print(f"Name: {name}")
+    print(f"EmpID: {empid}")
+    print(f"Gross Monthly Salary : ₹{gross_monthly_salary:,.2f}")
+    print(f"Annual Gross Salary  : ₹{annual_gross_salary:,.2f}")
+    print("-" * 40)
+    print(f"Standard Deduction   : ₹{standard_deduction:,.2f}")
+    print(f"Taxable Income       : ₹{taxable_income:,.2f}")
+    print("-" * 40)
+    print(f"Income Tax           : ₹{tax:,.2f}")
+    print(f"Health & Edu Cess    : ₹{cess:,.2f}")
+    print(f"Total Tax Payable    : ₹{total_tax:,.2f}")
+    print("-" * 40)
+    print(f"Annual Net Salary    : ₹{net_annual_salary:,.2f}")
+    print("="*40)
+
+main()
