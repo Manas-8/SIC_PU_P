@@ -93,11 +93,12 @@ else:
     print("Second smallest digit:", second_smallest)
 
 number=int(input("Enter the number: "))
-temporary=number
-while True:
-    for i in range(2, number):
-        if (number % i == 0):
-            print(f"{number} is not a prime")
-            break
+temporary=str(number)
+prime_numbers=[]
+for i in temporary:
+    for j in range(2, int(i)):
+        if (int(i) % j == 0):
+            pass
         else:
-            print(f"{number} is not a prime number")
+            prime_numbers.append(j)
+
