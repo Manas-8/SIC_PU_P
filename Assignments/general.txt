@@ -1,1 +1,8 @@
-just a txt file
+# Count the number of prime numbers
+number=input("Enter the number: ")
+count=0
+for i in number:
+    if int(i) in [2, 3, 5, 7]:
+        count+=1
+    
+print(count)
