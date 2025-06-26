@@ -73,3 +73,31 @@ taxable_income=annual_gross_salary-standard_deduction
 print(f"Gross Monthly Salary   : {gross_monthly_salary:,.2f}")
 print(f"standard_deduction    : {standard_deduction:,.2f}")
 print(f"taxable_income    : {taxable_income:,.2f}")
+
+number = input("Enter the number: ")
+
+smallest = 10
+second_smallest = 10
+
+for i in number:
+    digit = int(i)
+    if digit < smallest:
+        second_smallest = smallest
+        smallest = digit
+    elif smallest < digit < second_smallest:
+        second_smallest = digit
+
+if second_smallest == 10:
+    print("No second smallest digit exists.")
+else:
+    print("Second smallest digit:", second_smallest)
+
+number=int(input("Enter the number: "))
+temporary=number
+while True:
+    for i in range(2, number):
+        if (number % i == 0):
+            print(f"{number} is not a prime")
+            break
+        else:
+            print(f"{number} is not a prime number")
