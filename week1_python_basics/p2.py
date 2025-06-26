@@ -4,4 +4,7 @@ Accept the average score from the student and give her the result as follows:
 70 to 84 second class
 85 to 95 First class
 96 to 100 excellent'''
-
+for i in range(10):
+    print(i, end=" ")
+    i+=2
+    print(i, end=" ")
