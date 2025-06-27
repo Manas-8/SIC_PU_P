@@ -64,17 +64,16 @@ for i in range(2, number):
 print(list1)
 
 # series
-power=1
-denominator=1
 n=int(input("Enter the number for 1 to 4: "))
 m=int(input("Enter the number for 2 to 10: "))
-sign=1
+sign=-1
 sum=0
+denominator=-1
 for i in range(m):
-    terms=sign*(n**power)/denominator
+    numerator=n**(2**i)
     denominator=denominator+2
-    sign=sign*-1
-    power=power*2
+    sign=(-1) * sign
+    terms=numerator/denominator * sign
     sum=sum+terms
     
 print(sum)
