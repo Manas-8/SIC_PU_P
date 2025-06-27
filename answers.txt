@@ -39,14 +39,7 @@ else:
     print(f"{year} is not a leap year")
 
 
-# biggest digit in a number
-number=input("Enter the number: ")
-current_max=int(number[0])
-for i in number:
-    if int(i)>current_max:
-        current_max=int(i)
 
-print(f"the biggest digit is {current_max}")
 
 # taxation problem
 #level_1
@@ -79,33 +72,4 @@ print(f"standard_deduction    : {standard_deduction:,.2f}")
 print(f"taxable_income    : {taxable_income:,.2f}")
 
 
-# second smallest in a digit
-number = input("Enter the number: ")
-
-smallest = 10
-second_smallest = 10
-
-for i in number:
-    digit = int(i)
-    if digit < smallest:
-        second_smallest = smallest
-        smallest = digit
-    elif smallest < digit < second_smallest:
-        second_smallest = digit
-
-if second_smallest == 10:
-    print("No second smallest digit exists.")
-else:
-    print("Second smallest digit:", second_smallest)
-
-
-number=int(input("Enter the number: "))
-temporary=str(number)
-prime_numbers=[]
-for i in temporary:
-    for j in range(2, int(i)):
-        if (int(i) % j == 0):
-            pass
-        else:
-            prime_numbers.append(j)
 
