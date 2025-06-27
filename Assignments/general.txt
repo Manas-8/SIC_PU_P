@@ -145,5 +145,30 @@ x_shape(size)
 x_in_hollow_square(size)
 
 
+# Find sum of the Even placed digits in the given number.
+number=input("Enter the number: ")
+count = 0
+sum = 0
+for i in number:
+    count += 1
+    if count % 2 == 1:
+        continue
+    else:
+        sum = sum + int(i)
+
+print(f"the sum of even placed digits is {sum}")
+
+# Find sum of the Odd placed digits in the given number.
+number=input("Enter the number: ")
+count = 1
+sum = 0
+for i in number:
+    count += 1
+    if count % 2 == 1:
+        continue
+    else:
+        sum = sum + int(i)
+
+print(f"the sum of even placed digits is {sum}")
 
 
