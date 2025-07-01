@@ -43,3 +43,18 @@ def is_same_reflection():
         print(-1)
 
 is_same_reflection()
+
+
+# array transport
+size1=int(input())
+list1=list(map(int, input().split()))
+size2=int(input())
+list2=list(map(int, input().split()))
+missing_list=[]
+for i in list2:
+    if list2.count(i) == list1.count(i) :
+        continue
+    else:
+        missing_list.append(i)
+
+print(missing_list.sort())
