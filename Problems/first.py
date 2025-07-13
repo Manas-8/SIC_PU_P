@@ -46,15 +46,50 @@ is_same_reflection()
 
 
 # array transport
-size1=int(input())
-list1=list(map(int, input().split()))
-size2=int(input())
-list2=list(map(int, input().split()))
-missing_list=[]
-for i in list2:
-    if list2.count(i) == list1.count(i) :
-        continue
-    else:
-        missing_list.append(i)
+def solve_missing_numbers():
+    n = int(input())
+    arr = list(map(int, input().split()))
+    m = int(input())
+    brr = list(map(int, input().split()))
 
-print(missing_list.sort())
+    freq_arr = {}
+    for x in arr:
+        freq_arr[x] = freq_arr.get(x, 0) + 1
+
+    freq_brr = {}
+    for x in brr:
+        freq_brr[x] = freq_brr.get(x, 0) + 1
+
+    missing = []
+    for num in freq_brr:
+        if freq_brr[num] != freq_arr.get(num, 0):
+            missing.append(num)
+
+    missing.sort()
+    print(*missing)
+
+
+#boys and girls
+def check_arrangement(t, test_cases):
+    results = []
+    for i in range(t):
+        n, boys, girls = test_cases[i]
+        boys.sort()
+        girls.sort()
+
+        def is_valid(start_with_boys):
+            merged = []
+            for j in range(n):
+                if start_with_boys:
+                    merged.append(boys[j])
+                    merged.append(girls[j])
+                else:
+                    merged.append(girls[j])
+                    merged.append(boys[j])
+            return all(merged[k] <= merged[k+1] for k in range(2*n - 1))
+
+        if is_valid(True) or is_valid(False):
+            results.append("YES")
+        else:
+            results.append("NO")
+    return results
