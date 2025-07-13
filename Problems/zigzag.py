@@ -48,14 +48,13 @@ def zigzag_traversal(root):
     print(" ".join(str(x) for x in result))
 
 # Input and function call
-def main():
-    n = int(input())
-    edges = []
-    for _ in range(n - 1):
-        u, v, c = input().split()
-        edges.append((int(u), int(v), c))
-    root = build_tree(n, edges)
-    zigzag_traversal(root)
+n = int(input())
+edges = []
+for _ in range(n - 1):
+u, v, c = input().split()
+edges.append((int(u), int(v), c))
+root = build_tree(n, edges)
+zigzag_traversal(root)
 
-# Call the main function to run
-main()
+
+
