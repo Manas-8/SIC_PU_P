@@ -64,19 +64,25 @@ for i in range(2, number):
 print(list1)
 
 # series
-n=int(input("Enter the number for 1 to 4: "))
-m=int(input("Enter the number for 2 to 10: "))
-sign=-1
-sum=0
-denominator=-1
+n = int(input('Enter N (term) value: '))
+m = int(input('Enter number of terms: '))
+
+sum_of_series = 0
+sign = -1
 for i in range(m):
-    numerator=n**(2**i)
-    denominator=denominator+2
-    sign=(-1) * sign
-    terms=numerator/denominator * sign
-    sum=sum+terms
-    
-print(sum)
+    numerator   = n ** 2 ** i
+    dinominator = 2 * i + 1
+    sign        = -1 * sign
+    term        = numerator / dinominator * sign
+    sum = sum + term
+    # sum += (n ** 2 ** i) / (2 * i + 1) * (-1 ** i) 
+
+'''
+numerator   = n power 2 power i
+dinominator = (2 * i + 1)
+sign        = -1 power i 
+term        = numerator / dinominator * sign
+'''
 
 
 
