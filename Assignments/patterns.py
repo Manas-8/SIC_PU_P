@@ -51,6 +51,26 @@ def x_in_hollow_square(n):
         print()
     print()
 
+# pascals traingle
+def pascal_triangle(n):
+    """Prints Pascal's Triangle with n rows"""
+    for row in range(1, n + 1):
+        value = 1  # First value in each row is always 1
+        print(" " * (n - row), end="")  # Leading spaces for pyramid shape
+        
+        for i in range(1, row + 1):
+            print(value, end=" ")
+            value = value * (row - i) // i  # Calculate next value
+            
+        print()  # New line after each row
+
+# Example usage:
+num_rows = 5
+print(f"Pascal's Triangle with {num_rows} rows:")
+pascal_triangle(num_rows)
+
+
+
 # Set the size
 size = 7
 
