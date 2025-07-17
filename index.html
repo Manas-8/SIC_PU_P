@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon US Sales Visualizations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .button-group {
+      margin-bottom: 30px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 8px;
+      font-size: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    img {
+      display: none;
+      max-width: 95%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: opacity 0.4s ease;
+    }
+
+    @media (max-width: 600px) {
+      button {
+        width: 90%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 Amazon US Sales Dashboard</h1>
+
+  <div class="button-group">
+    <button onclick="showChart('state')">📍 State-wise Sales & Profit</button>
+    <button onclick="showChart('day')">📅 Day-wise Sales</button>
+    <button onclick="showChart('payment')">💳 Payment Mode Sales</button>
+    <button onclick="showChart('category')">📦 Category-wise Sales</button>
+    <button onclick="showChart('month')">📈 Monthly Trend</button>
+  </div>
+
+  <div>
+    <img id="state" src="E:\charts\state_wise.png" alt="State-wise Sales Chart">
+    <img id="day" src="E:\charts\day_wise.png" alt="Day-wise Sales Chart">
+    <img id="payment" src="E:\charts\payment_mode.png" alt="Payment Mode Pie Chart">
+    <img id="category" src="E:\charts\category.png" alt="Category-wise Sales Chart">
+    <img id="month" src="E:\charts\monthly_sales.png" alt="Monthly Trends Chart">
+  </div>
+
+  <script>
+    function showChart(id) {
+      const charts = document.querySelectorAll('img');
+      charts.forEach(img => {
+        img.style.display = 'none';
+        img.style.opacity = 0;
+      });
+
+      const active = document.getElementById(id);
+      active.style.display = 'block';
+      setTimeout(() => {
+        active.style.opacity = 1;
+      }, 100); // delay to trigger transition
+    }
+  </script>
+
+</body>
+</html>
